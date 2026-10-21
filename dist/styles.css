@@ -10,3 +10,11 @@
 nav a{display:inline-flex;align-items:center;min-height:44px}nav{align-items:center}.hero-art{isolation:isolate}.hero-art:before{z-index:0}.hero-art>img,.hero-art figcaption,.image-note{position:relative;z-index:1}.hero-art figcaption,.image-note{position:absolute}
 @media(max-width:650px){header{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}.header-cta{width:118px;max-width:118px;margin:0}header nav{grid-column:1/-1;margin-top:5px}.brand{font-size:26px}header .brand span{font-size:6px;letter-spacing:1.25px}}
 @media(max-width:350px){header .brand{font-size:24px}.header-cta{width:110px;max-width:110px;font-size:9px;padding:10px}.brand span{letter-spacing:1px}}
+
+/* Client-supplied logo: preserve original artwork and its white background. */
+.brand.brand-logo{display:inline-flex;align-items:center;justify-content:center;flex:none;width:116px;height:116px;padding:5px;background:#fff;border:1px solid #e6d8ce;border-radius:14px;box-shadow:0 4px 16px #60434b06;line-height:0;overflow:hidden}
+.brand-logo img{display:block;width:100%;height:100%;object-fit:contain;aspect-ratio:1;max-width:100%}
+header{padding-top:18px;padding-bottom:18px}
+footer .brand.brand-logo{width:132px;height:132px;padding:7px}
+@media(max-width:650px){header{padding-top:16px;padding-bottom:10px}.brand.brand-logo{width:100px;height:100px;padding:4px;border-radius:12px}footer .brand.brand-logo{width:120px;height:120px;padding:5px}}
+@media(max-width:350px){.brand.brand-logo{width:94px;height:94px}}

@@ -27,3 +27,7 @@ Validación: comprobados 320, 390, 430, 768 y 1440 px; sin desbordamiento horizo
 Desde esta carpeta, ejecutar `python -m http.server 4178 --directory dist` y abrir http://localhost:4178. No requiere instalación de dependencias ni compilación.
 
 Repositorio: https://github.com/ElKavin05/Yoli-Balloons
+
+## Logo proporcionado por la clienta
+
+`dist/assets/yoli-balloons-logo.png` conserva el archivo original, sus colores y proporciones. Se muestra completo sobre una superficie blanca, sin estirar ni recortar el globo o el texto, en el encabezado y el pie de página. El tamaño intrínseco evita saltos de composición y permite una presentación nítida en pantallas de alta densidad.
