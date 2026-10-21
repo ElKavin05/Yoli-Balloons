@@ -18,3 +18,9 @@ header{padding-top:18px;padding-bottom:18px}
 footer .brand.brand-logo{width:132px;height:132px;padding:7px}
 @media(max-width:650px){header{padding-top:16px;padding-bottom:10px}.brand.brand-logo{width:100px;height:100px;padding:4px;border-radius:12px}footer .brand.brand-logo{width:120px;height:120px;padding:5px}}
 @media(max-width:350px){.brand.brand-logo{width:94px;height:94px}}
+
+/* Transparent logo sits directly on the page, without a white tile. */
+.brand.brand-logo,footer .brand.brand-logo{background:transparent;border:0;border-radius:0;box-shadow:none;overflow:visible;padding:0;width:130px;height:130px}
+footer .brand.brand-logo{width:145px;height:145px}
+@media(max-width:650px){.brand.brand-logo{width:112px;height:112px}footer .brand.brand-logo{width:130px;height:130px}}
+@media(max-width:350px){.brand.brand-logo{width:102px;height:102px}}

@@ -31,3 +31,5 @@ Repositorio: https://github.com/ElKavin05/Yoli-Balloons
 ## Logo proporcionado por la clienta
 
 `dist/assets/yoli-balloons-logo.png` conserva el archivo original, sus colores y proporciones. Se muestra completo sobre una superficie blanca, sin estirar ni recortar el globo o el texto, en el encabezado y el pie de página. El tamaño intrínseco evita saltos de composición y permite una presentación nítida en pantallas de alta densidad.
+
+Logo transparente: `dist/assets/yoli-balloons-logo-transparent.png`. Versión sin fondo para integrarse directamente al crema del sitio. Se conserva el original proporcionado por la clienta.
