@@ -1,0 +1,5 @@
+# Cloudflare Pages configuration (not a Worker).
+# If the existing Pages project has a different name, match it here.
+name = "yoli-balloons"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-10-21"

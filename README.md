@@ -33,3 +33,42 @@ Repositorio: https://github.com/ElKavin05/Yoli-Balloons
 `dist/assets/yoli-balloons-logo.png` conserva el archivo original, sus colores y proporciones. Se muestra completo sobre una superficie blanca, sin estirar ni recortar el globo o el texto, en el encabezado y el pie de página. El tamaño intrínseco evita saltos de composición y permite una presentación nítida en pantallas de alta densidad.
 
 Logo transparente: `dist/assets/yoli-balloons-logo-transparent.png`. Versión sin fondo para integrarse directamente al crema del sitio. Se conserva el original proporcionado por la clienta.
+
+
+## Desplegar en Cloudflare Pages y Netlify
+
+El repositorio es independiente: la raíz es esta carpeta, no la carpeta del proyecto CirenCore. No requiere React, Vite, dependencias de ejecución, backend ni variables secretas. `dist` ya contiene el sitio completo. `npm run build` comprueba archivos y recursos sin regenerarlos ni borrarlos.
+
+### Cloudflare Pages
+
+- Repositorio: `ElKavin05/Yoli-Balloons`.
+- Rama de producción: `main`.
+- Framework: `None`.
+- Directorio raíz: dejar vacío (raíz del repositorio).
+- Comando de build: `npm run build`.
+- Directorio de salida: `dist`.
+- El archivo `wrangler.toml` declara la carpeta de salida para Pages. Si tu proyecto existente tiene otro nombre, sustituye `name = "yoli-balloons"` por su nombre real antes de desplegar.
+- Seleccionar un proyecto **Pages**, no un Worker con comando `wrangler deploy`.
+
+Si aparece “project disconnected”, revisar en GitHub Settings → Applications → Installed GitHub Apps → Cloudflare Workers and Pages que el repositorio Yoli-Balloons esté autorizado. Mantener el acceso que ya requiere CirenCore-Page. Los archivos del repositorio no pueden conceder ese permiso ni resolver incidencias de webhooks.
+
+### Netlify
+
+`netlify.toml` define el comando `npm run build`, Node 22 y la carpeta publicable `dist`.
+
+- Importar `ElKavin05/Yoli-Balloons`, rama `main`.
+- Base directory: raíz del repositorio (vacío).
+- Build command: `npm run build`.
+- Publish directory: `dist`.
+- No establecer `sites/yoli-balloons` como base: esa ruta pertenece al workspace local, no al repositorio independiente.
+
+Para una carga manual, subir el contenido de `dist`, no la carpeta raíz del repositorio.
+
+### Comprobar antes de publicar
+
+Ejecutar `npm run build` con Node 22 o posterior. La validación comprueba archivos esenciales, referencias locales del HTML, sintaxis de JavaScript y protección noindex de la muestra. El éxito de esta comprobación no confirma que Cloudflare o Netlify hayan desplegado: comprobar el resultado y la URL en la plataforma elegida.
+
+Fuentes oficiales:
+- https://developers.cloudflare.com/pages/framework-guides/deploy-anything/
+- https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+- https://docs.netlify.com/build/configure-builds/file-based-configuration/

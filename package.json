@@ -1,0 +1,12 @@
+{
+  "name": "yoli-balloons",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Propuesta visual estática de Yoli Balloons",
+  "scripts": {
+    "build": "node scripts/verify-site.mjs",
+    "check": "node scripts/verify-site.mjs"
+  },
+  "engines": { "node": ">=22" }
+}
