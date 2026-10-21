@@ -1,0 +1,13 @@
+const content = window.YOLI_CONTENT;
+const whatsappURL = message => `https://wa.me/${content.whatsapp}?text=${encodeURIComponent(message)}`;
+document.querySelectorAll('[data-whatsapp]').forEach(a => { a.href = whatsappURL(content.message); a.target = '_blank'; a.rel = 'noopener noreferrer'; });
+if(content.heroImage){ const figure = document.querySelector('.hero-art'); figure.replaceChildren(); const image = document.createElement('img'); image.src=content.heroImage; image.alt=content.heroAlt; image.fetchPriority='high'; figure.append(image); figure.classList.remove('placeholder'); }
+const gallery=document.getElementById('gallery');
+const dialog=document.getElementById('lightbox');
+let lastTrigger;
+content.photos.forEach((photo,index)=>{ const figure=document.createElement('figure'); const button=document.createElement('button'); button.className='photo-button'; button.setAttribute('aria-label',`Ampliar: ${photo.alt}`); const img=document.createElement('img'); img.src=photo.src; img.alt=photo.alt; img.loading='lazy'; img.decoding='async'; button.append(img); const caption=document.createElement('figcaption'); caption.textContent=photo.caption || `Portafolio · ${String(index+1).padStart(2,'0')}`; figure.append(button,caption); gallery.append(figure); button.addEventListener('click',()=>{lastTrigger=button;document.getElementById('lightbox-image').src=photo.src;document.getElementById('lightbox-image').alt=photo.alt;document.getElementById('lightbox-caption').textContent=photo.caption || '';dialog.showModal();}); });
+if(!content.photos.length)content.placeholders.forEach((label,index)=>{const figure=document.createElement('figure');figure.className=`portfolio-placeholder tone-${index}`;const number=document.createElement('span');number.className='placeholder-number';number.textContent=String(index+1).padStart(2,'0');const caption=document.createElement('figcaption');caption.textContent=label;const note=document.createElement('small');note.textContent='Imagen real pendiente';caption.append(note);figure.append(number,caption);gallery.append(figure);});
+document.getElementById('close-lightbox').addEventListener('click',()=>dialog.close());
+dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
+dialog.addEventListener('close',()=>lastTrigger?.focus());
+document.getElementById('inquiry').addEventListener('submit',event=>{event.preventDefault();const values=new FormData(event.target);let message=content.message; [['occasion','Ocasión'],['date','Fecha'],['zone','Zona'],['idea','Idea o referencia']].forEach(([key,label])=>{const value=String(values.get(key)||'').trim();if(value)message+=`\n${label}: ${value}`;});window.open(whatsappURL(message),'_blank','noopener,noreferrer');});
